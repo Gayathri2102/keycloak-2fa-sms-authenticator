@@ -5,7 +5,10 @@
         ${msg("loginTitle",(realm.displayName!''))?no_esc}
     <#elseif section = "header">
 	<div class="title">
-            ${msg("loginTitleHtml",(realm.displayNameHtml!''))?no_esc}
+            ${msg("Login",(realm.displayNameHtml!''))?no_esc}
+		<p id="kc-header-p">
+			Login with your email and password
+		</p>
     </div>
     <#elseif section = "form">
         <#if realm.password>

@@ -107,7 +107,7 @@
                         <div>
                             <#if realm.password && realm.registrationAllowed && !usernameEditDisabled??>
                                 <div id="kc-registration" class="col-xs-12" <#if realm.password && realm.registrationAllowed && !usernameEditDisabled?? && realm.resetPasswordAllowed>style="margin-bottom: 15px;"</#if>>
-                                    <span>${msg("noAccount")} <a href="${url.registrationUrl}">${msg("doRegister")}</a></span>
+                                    <span style="color: white">${msg("noAccount")} <a class="mdc-button mdc-ripple-upgraded" href="${url.registrationUrl}">${msg("doRegister")}</a></span>
                                 </div>
                             </#if>
                         </div>

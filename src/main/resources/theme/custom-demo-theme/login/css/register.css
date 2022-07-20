@@ -1,0 +1,115 @@
+body {
+	background: black !important;
+}
+
+.back {
+	color: white;
+	text-transform: none;
+	text-decoration: underline;
+}
+
+.submit {
+	/* background-color: #9f0bcc !important;
+	color: #d6d8db !important; */
+	border-radius: 8px;
+	text-transform: none;
+}
+
+.template {
+	margin: 0;
+}
+
+.close {
+	padding: 15px 5px;
+}
+
+#kc-container-wrapper {
+	background-color: #232527 !important;
+	height: 100vh;
+	width: 100% !important;
+	border-radius: 8px;
+}
+
+#kc-header {
+	text-align: left;
+	color: white;
+	margin-bottom: 0;
+}
+
+#kc-header-wrapper {
+	font-weight: bold;
+	font-size: 28px;
+}
+
+#kc-header-p {
+	font-size: 16px;
+	color: #5c5f63;
+	margin-bottom: 0;
+}
+
+#kc-content {
+	width: 100%;
+	height: inherit;
+	background-color: inherit;
+	box-shadow: none;
+	padding-top: 10px;
+}
+
+#kc-form-wrapper {
+	height: 100%;
+}
+
+form {
+	position: relative;
+}
+
+#kc-form-buttons {
+	height: 50px;
+}
+
+form button {
+	height: 45px !important;
+}
+
+input {
+	color: #d6d8db !important;
+}
+
+.mdc-floating-label {
+	color: #5c5f63 !important;
+}
+
+form .material-icons {
+	color: #5c5f63 !important;
+}
+
+.invalid {
+	font-size: 20px;
+	vertical-align: bottom;
+}
+
+.register-button-container {
+	position: fixed;
+	bottom: 25px;
+	left: 15px;
+	right: 25px;
+}
+
+.border {
+	height: 1px;
+	background: #1e5799;
+	background: linear-gradient(to right, #9f0bcc 50%, #5c5f63 50%);
+	width: 100%;
+	position: fixed;
+	left: 0;
+	bottom: 100px;
+}
+
+.validation-section {
+	display: grid;
+	grid-template-columns: 35% auto;
+	grid-template-rows: 40px 40px;
+	column-gap: 15px;
+	padding-top: 15px;
+	color: #5c5f63;
+}

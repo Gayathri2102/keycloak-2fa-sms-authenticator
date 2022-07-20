@@ -1,0 +1,6 @@
+{
+    "themes": [{
+        "name" : "custom-demo-theme",
+        "types": [ "login"]
+    }]
+}

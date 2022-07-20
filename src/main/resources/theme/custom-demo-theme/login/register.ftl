@@ -1,9 +1,20 @@
 <#import "template.ftl" as layout>
+<link href="resources/css/bootstrap-material-design-alerts.css">
+<link href="resources/css/material-components-web.min.css">
+<link href="resources/css/material-keycloak-theme.css">
+<link href="resources/css/register.css">
+<script src="js/polyfill/nodelist-foreach.js"></script>
+<script src="js/material-components-web.min.js"></script>
+<script src="js/material-keycloak-theme.js"></script>
 <@layout.registrationLayout; section>
     <#if section = "title">
         ${msg("registerWithTitle",(realm.displayName!''))?no_esc}
     <#elseif section = "header">
         ${msg("Email & Password",(realm.displayNameHtml!''))?no_esc}
+		<p id="kc-header-p">
+			This information will be used when two-factor authentication is
+			enable
+		</p>
     <#elseif section = "form">
 		<form id="kc-register-form" class="register form ${properties.kcFormClass!}" action="${url.registrationAction}" method="post">
 			<input type="text" readonly value="this is not a login form" style="display: none;">
@@ -40,6 +51,33 @@
 						</svg>
 					</div>
 					<div class="mdc-notched-outline__idle"></div>
+				</div>
+
+				<div class="validation-section">
+					<div>
+						<i class="material-icons invalid" aria-hidden="true"
+						>close</i
+						>
+						One letter
+					</div>
+					<div>
+						<i class="material-icons invalid" aria-hidden="true"
+						>close</i
+						>
+						One special character
+					</div>
+					<div>
+						<i class="material-icons invalid" aria-hidden="true"
+						>close</i
+						>
+						One number
+					</div>
+					<div>
+						<i class="material-icons invalid" aria-hidden="true"
+						>close</i
+						>
+						8 characters minimum
+					</div>
 				</div>
 
 				<div class="form-group" style="display: none">

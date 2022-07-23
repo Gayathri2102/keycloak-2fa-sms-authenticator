@@ -2,6 +2,7 @@ package dasniko.keycloak.authenticator.forms;
 
 
 import org.keycloak.Config;
+import org.keycloak.authentication.AuthenticationFlowError;
 import org.keycloak.authentication.FormAction;
 import org.keycloak.authentication.FormActionFactory;
 import org.keycloak.authentication.FormContext;
@@ -9,14 +10,20 @@ import org.keycloak.authentication.ValidationContext;
 import org.keycloak.authentication.forms.RegistrationPage;
 import org.keycloak.events.Details;
 import org.keycloak.events.Errors;
+import org.keycloak.events.EventType;
 import org.keycloak.forms.login.LoginFormsProvider;
 import org.keycloak.models.*;
 import org.keycloak.models.utils.FormMessage;
+import org.keycloak.protocol.oidc.OIDCLoginProtocol;
 import org.keycloak.provider.ProviderConfigProperty;
 import org.keycloak.services.messages.Messages;
 import org.keycloak.services.validation.Validation;
+import org.keycloak.userprofile.UserProfile;
+import org.keycloak.userprofile.UserProfileContext;
+import org.keycloak.userprofile.UserProfileProvider;
 
 import javax.ws.rs.core.MultivaluedMap;
+import javax.ws.rs.core.Response;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -25,6 +32,8 @@ import java.util.List;
  */
 public class PlaceholderRegistrationProfile implements FormAction, FormActionFactory {
 
+
+	private static final String TPL_CODE = "regmobilenumber.ftl";
 	public static final String PROVIDER_ID = "pl-spi-registration-profile"; // MAX 36 chars !!!!
 
 	@Override
@@ -91,16 +100,56 @@ public class PlaceholderRegistrationProfile implements FormAction, FormActionFac
 
 	@Override
 	public void success(FormContext context) {
-		UserModel user = context.getUser();
 		MultivaluedMap<String, String> formData = context.getHttpRequest().getDecodedFormParameters();
-		user.setFirstName(formData.getFirst(RegistrationPage.FIELD_FIRST_NAME));
-		user.setLastName(formData.getFirst(RegistrationPage.FIELD_LAST_NAME));
-		user.setEmail(formData.getFirst(RegistrationPage.FIELD_EMAIL));
+
+		String email = formData.getFirst(UserModel.EMAIL);
+		String username = formData.getFirst(UserModel.USERNAME);
+
+		if (context.getRealm().isRegistrationEmailAsUsername()) {
+			username = email;
+		}
+
+		context.getEvent().detail(Details.USERNAME, username)
+			.detail(Details.REGISTER_METHOD, "form")
+			.detail(Details.EMAIL, email);
+
+		KeycloakSession session = context.getSession();
+
+		UserProfileProvider profileProvider = session.getProvider(UserProfileProvider.class);
+		UserProfile profile = profileProvider.create(UserProfileContext.REGISTRATION_USER_CREATION, formData);
+		UserModel user = profile.create();
+
+		user.setEnabled(true);
+
+		context.setUser(user);
+
+		context.getAuthenticationSession().setClientNote(OIDCLoginProtocol.LOGIN_HINT_PARAM, username);
+
+		context.getEvent().user(user);
+		context.getEvent().success();
+		context.newEvent().event(EventType.LOGIN);
+		context.getEvent().client(context.getAuthenticationSession().getClient().getClientId())
+			.detail(Details.REDIRECT_URI, context.getAuthenticationSession().getRedirectUri())
+			.detail(Details.AUTH_METHOD, context.getAuthenticationSession().getProtocol());
+		String authType = context.getAuthenticationSession().getAuthNote(Details.AUTH_TYPE);
+		if (authType != null) {
+			context.getEvent().detail(Details.AUTH_TYPE, authType);
+		}
 	}
 
 	@Override
 	public void buildPage(FormContext context, LoginFormsProvider form) {
 		// complete
+System.out.println("===========> creating registering ");
+	try {
+			//context.challenge(context.form().setAttribute("realm", context.getRealm()).createForm(TPL_CODE));
+			form.setAttribute("realm", context.getRealm()).createForm(TPL_CODE);
+
+	} catch (Exception e) {
+
+		System.out.println("===========> creating registering "+e.getMessage());
+
+	}
 	}
 
 	@Override

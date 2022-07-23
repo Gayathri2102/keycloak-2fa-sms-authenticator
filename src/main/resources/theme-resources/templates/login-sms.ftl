@@ -41,7 +41,13 @@
 			<div class="${properties.kcFormGroupClass!} ${properties.kcFormSettingClass!}">
 				<div id="kc-form-options" class="${properties.kcFormOptionsClass!}">
 					<div class="${properties.kcFormOptionsWrapperClass!}">
-						<span><a class="mdc-button mdc-ripple-upgraded" href="${url.loginUrl}">${kcSanitize(msg("backToLogin"))?no_esc}</a></span>
+						<#--<span><a class="mdc-button mdc-ripple-upgraded" href="${url.loginUrl}">${kcSanitize(msg("backToLogin"))?no_esc}</a></span>-->
+						<span>
+                            <button class="mdc-button" onclick="window.location.href = '${url.loginUrl}'" novalidate>
+                                <i class="material-icons mdc-button__icon" aria-hidden="true">arrow_back</i>
+                                ${msg("backToLogin")?no_esc}
+                            </button>
+                        </span>
 					</div>
 				</div>
 

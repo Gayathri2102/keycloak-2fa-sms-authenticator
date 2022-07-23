@@ -30,6 +30,16 @@
             <script src="${script}" type="text/javascript"></script>
         </#list>
     </#if>
+	<style type="text/css">
+		#kc-header {
+			margin-top: 4%!important;
+			margin-left: 2%!important;
+		}
+		body{
+			background-color: #232527 !important;
+		}
+
+	</style>
 </head>
 
 <body class="${properties.kcBodyClass!} template">

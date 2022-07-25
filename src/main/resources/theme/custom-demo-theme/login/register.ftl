@@ -28,19 +28,19 @@
 
             <#if !realm.registrationEmailAsUsername>
 				<div>
-					<input id="username"   name="username" type="text" autofocus required value="${(register.formData.username!'')}">
+					<input id="username"   name="username" type="text" style="color: #9c9ea3!important;" autofocus required value="${(register.formData.username!'')}">
 				</div>
 				<br/>
             </#if>
 			<div>
-				<input required id="email" name="email" type="text"  placeholder="Email" required value="${(register.formData.email!'')}">
+				<input required id="email" name="email" type="text"  placeholder="Email" style="color: #9c9ea3!important;" required value="${(register.formData.email!'')}">
 
 			</div>
 			<br/>
             <#if passwordRequired>
 				<div>
 					<div style="position: absolute; height: 56px;width: 100%">
-						<input type="password" id="password" name="password" minlength="8" placeholder="Password" required>
+						<input type="password" id="password" name="password" minlength="8" placeholder="Password" style="color: #9c9ea3!important;" required>
 					</div>
 					<div onclick="togglePasswordFunc()" style="position: absolute; z-index: 9; margin: 18px 40px; right: 0; color: #ffffff; font-family: sfPro; text-align: end;">
 						Show
@@ -48,7 +48,7 @@
 				</div>
 				<br/><br/><br/><br/>
 				<div>
-					<input required id="password-confirm"  name="password-confirm" minlength="8" placeholder="Confirm password" type="password">
+					<input required id="password-confirm"  name="password-confirm" minlength="8" placeholder="Confirm password" type="password" style="color: #9c9ea3!important;">
 
 				</div>
 				<p id="matching-error-msg" style="color: #ff453a; font-size: 14px; display: none;">
@@ -96,8 +96,8 @@
 			</div>
 				<div >
 
-					<button style="background-color: #9f0ccc; width: 100%; height: 48px; border-radius: 8px; outline: none; border: none;" onclick="onSubmitFunc()" style="width: 100%" class="mdc-button mdc-button--raised ${properties.kcButtonClass!} ${properties.kcButtonPrimaryClass!} ${properties.kcButtonLargeClass!}" type="submit" value="Submit">
-                        ${msg("doRegister")?no_esc}
+					<button style="background-color: #9f0ccc; width: 100%; height: 48px; border-radius: 8px; outline: none; border: none;" onclick="onSubmitFunc()" style="width: 100%" class="mdc-button mdc-button--raised ${properties.kcButtonClass!} ${properties.kcButtonPrimaryClass!} ${properties.kcButtonLargeClass!}" type="submit">
+                        ${msg("Submit")?no_esc}
 					</button>
 				</div>
 

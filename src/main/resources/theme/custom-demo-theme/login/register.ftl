@@ -24,7 +24,7 @@
 
             <#if !realm.registrationEmailAsUsername>
 				<div>
-					<input id="username"   name="username" type="text" style="color: #9c9ea3!important;" autofocus required value="${(register.formData.username!'')}">
+					<input id="username" name="username" type="text" placeholder="Username" style="color: #9c9ea3!important;" autofocus required value="${(register.formData.username!'')}">
 				</div>
 				<br/>
             </#if>

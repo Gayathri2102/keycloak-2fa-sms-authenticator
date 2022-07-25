@@ -9,9 +9,6 @@
 		<img id="cancelimg" />
 		<div class="title">
             ${msg("Email & password",(realm.displayNameHtml!''))?no_esc}
-			<p style="color: #9c9ea3; font-weight: 400; font-size: 16px; line-height: 1.4;" id="kc-header-p">
-				This information will be used when two-factor authentication is enabled
-			</p>
 		</div>
     <#elseif section = "form">
         <#if realm.password>

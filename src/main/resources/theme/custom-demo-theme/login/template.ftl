@@ -32,8 +32,8 @@
     </#if>
 	<style type="text/css">
 		#kc-header {
-			margin-top: 4%!important;
-			margin-left: 2%!important;
+			margin-top: 1%!important;
+			margin-left: 1%!important;
 		}
 		body{
 			background-color: #232527 !important;

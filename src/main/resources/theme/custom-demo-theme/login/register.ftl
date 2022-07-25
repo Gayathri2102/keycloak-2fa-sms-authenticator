@@ -16,10 +16,6 @@
 		<img id="cancelimg" />
 	<div class="title">
         ${msg("Register",(realm.displayNameHtml!''))?no_esc}
-		<p style="color: #9c9ea3; font-weight: 400; font-size: 16px; line-height: 1.4;" id="kc-header-p">
-			This information will be used when two-factor authentication is
-			enable
-		</p>
 	</div>
     <#elseif section = "form">
 		<form id="kc-register-form" class="register form ${properties.kcFormClass!}" action="${url.registrationAction}" method="post" >

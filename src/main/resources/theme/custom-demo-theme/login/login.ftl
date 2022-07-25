@@ -1,5 +1,5 @@
 <#import "template.ftl" as layout>
-<link href="resources/css/register.css">
+<link href="resources/css/register.css?v1.0">
 
 <link href="resources/css/common.css">
 <@layout.registrationLayout displayInfo=social.displayInfo; section>
@@ -27,7 +27,7 @@
 					</div>
 				</div>
 				<br/><br/><br/><br/>
-				<button class="mdc-button mdc-button--raised ${properties.kcButtonClass!} ${properties.kcButtonPrimaryClass!} ${properties.kcButtonLargeClass!}" name="login" id="kc-login" type="submit">
+				<button style="background-color: #9f0ccc; width: 100%; height: 48px; border-radius: 8px; outline: none; border: none;" class="mdc-button mdc-button--raised ${properties.kcButtonClass!} ${properties.kcButtonPrimaryClass!} ${properties.kcButtonLargeClass!}" name="login" id="kc-login" type="submit" value ="Submit">
                     ${msg("doLogIn")}
 				</button>
 				<div id="kc-registration" class="col-xs-12" <#if realm.password && realm.registrationAllowed && !usernameEditDisabled?? && realm.resetPasswordAllowed>style="margin-bottom: 15px;"</#if>>

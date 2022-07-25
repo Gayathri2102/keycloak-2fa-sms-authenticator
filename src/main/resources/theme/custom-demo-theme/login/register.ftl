@@ -2,7 +2,7 @@
 <link href="resources/css/bootstrap-material-design-alerts.css">
 <link href="resources/css/material-components-web.min.css">
 <link href="resources/css/material-keycloak-theme.css">
-<link href="resources/css/register.css">
+<link href="resources/css/register.css?v1.0">
 
 <link href="resources/css/common.css">
 <script src="js/polyfill/nodelist-foreach.js"></script>
@@ -96,7 +96,7 @@
 			</div>
 				<div >
 
-					<button onclick="onSubmitFunc()" style="width: 100%" class="mdc-button mdc-button--raised ${properties.kcButtonClass!} ${properties.kcButtonPrimaryClass!} ${properties.kcButtonLargeClass!}" type="submit">
+					<button style="background-color: #9f0ccc; width: 100%; height: 48px; border-radius: 8px; outline: none; border: none;" onclick="onSubmitFunc()" style="width: 100%" class="mdc-button mdc-button--raised ${properties.kcButtonClass!} ${properties.kcButtonPrimaryClass!} ${properties.kcButtonLargeClass!}" type="submit" value="Submit">
                         ${msg("doRegister")?no_esc}
 					</button>
 				</div>

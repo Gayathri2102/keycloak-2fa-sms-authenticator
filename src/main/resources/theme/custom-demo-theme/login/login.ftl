@@ -30,7 +30,7 @@
 				<button style="background-color: #9f0ccc; width: 100%; height: 48px; border-radius: 8px; outline: none; border: none;" class="mdc-button mdc-button--raised ${properties.kcButtonClass!} ${properties.kcButtonPrimaryClass!} ${properties.kcButtonLargeClass!}" name="login" id="kc-login" type="submit">
                     ${msg("Submit")}
 				</button>
-				<div id="kc-registration" class="col-xs-12" <#if realm.password && realm.registrationAllowed && !usernameEditDisabled?? && realm.resetPasswordAllowed>style="margin-bottom: 15px;"</#if>>
+				<div style="display: none" id="kc-registration" class="col-xs-12" <#if realm.password && realm.registrationAllowed && !usernameEditDisabled?? && realm.resetPasswordAllowed>style="margin-bottom: 15px;"</#if>>
 					<span style="color: white">${msg("noAccount")} <a class="mdc-button mdc-ripple-upgraded" href="${url.registrationUrl}">${msg("doRegister")}</a></span>
 				</div>
 			</form>

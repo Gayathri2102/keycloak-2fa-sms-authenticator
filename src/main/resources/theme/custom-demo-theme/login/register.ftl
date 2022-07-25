@@ -16,7 +16,7 @@
 		<img id="cancelimg" />
 	<div class="title">
         ${msg("Register",(realm.displayNameHtml!''))?no_esc}
-		<p id="kc-header-p">
+		<p style="color: #9c9ea3; font-weight: 400; font-size: 16px; line-height: 1.4;" id="kc-header-p">
 			This information will be used when two-factor authentication is
 			enable
 		</p>
@@ -100,8 +100,6 @@
                         ${msg("Submit")?no_esc}
 					</button>
 				</div>
-
-
 		</form>
     </#if>
 </@layout.registrationLayout>
